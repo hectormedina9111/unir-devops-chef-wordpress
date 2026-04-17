@@ -1,0 +1,7 @@
+name             'wordpress'
+maintainer       'TechOps Solutions'
+maintainer_email 'admin@example.com'
+license          'All Rights Reserved'
+description      'Instala y configura WordPress con Apache, MySQL y PHP (LAMP)'
+version          '0.1.0'
+chef_version     '>= 14.0'

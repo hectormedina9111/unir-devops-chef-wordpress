@@ -1,0 +1,12 @@
+name             'principal'
+maintainer       'TechOps Solutions'
+maintainer_email 'admin@example.com'
+license          'All Rights Reserved'
+description     'Orquestador principal que coordina la instalacion WordPress'
+version          '0.1.0'
+chef_version    '>= 14.0'
+
+depends 'mi_apache'
+depends 'mi_mysql'
+depends 'mi_php'
+depends 'mi_wordpress'
