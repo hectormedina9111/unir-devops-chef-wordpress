@@ -1,5 +1,7 @@
 document_root = node['wordpress']['document_root']
 
+apt_update "update_apt_cache"
+
 package 'apache2' do
   action :install
 end
