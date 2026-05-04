@@ -1,0 +1,190 @@
+{
+  "revision_id": "817a869f829b17eb412abe785d6c0dc0dba4e306898d57bc6262e8f36c90bfd2",
+  "name": "chef-wordpress",
+  "run_list": [
+    "recipe[principal::default]"
+  ],
+  "included_policy_locks": [
+
+  ],
+  "cookbook_locks": {
+    "mi_apache": {
+      "version": "0.1.0",
+      "identifier": "920eb96f7d115d16d2cc1d9e615d3808978a859a",
+      "dotted_decimal_identifier": "41111536201961821.6424223599714653.61609553331610",
+      "source": "chef/cookbooks/mi_apache",
+      "cache_key": null,
+      "scm_info": {
+        "scm": "git",
+        "remote": null,
+        "revision": "6da5f144ab88fbab20b467320c70535763d10c83",
+        "working_tree_clean": false,
+        "published": true,
+        "synchronized_remote_branches": [
+          "origin/HEAD -> origin/main",
+          "origin/main"
+        ]
+      },
+      "source_options": {
+        "path": "chef/cookbooks/mi_apache"
+      }
+    },
+    "mi_mysql": {
+      "version": "0.1.0",
+      "identifier": "3b5518bc9c9d6e5f9f11370037b17a4259935804",
+      "dotted_decimal_identifier": "16700588357885294.26915019073533873.134425389258756",
+      "source": "chef/cookbooks/mi_mysql",
+      "cache_key": null,
+      "scm_info": {
+        "scm": "git",
+        "remote": null,
+        "revision": "6da5f144ab88fbab20b467320c70535763d10c83",
+        "working_tree_clean": false,
+        "published": true,
+        "synchronized_remote_branches": [
+          "origin/HEAD -> origin/main",
+          "origin/main"
+        ]
+      },
+      "source_options": {
+        "path": "chef/cookbooks/mi_mysql"
+      }
+    },
+    "mi_php": {
+      "version": "0.1.0",
+      "identifier": "afece797a1416d57563b574868e1afd6005ca924",
+      "dotted_decimal_identifier": "49518600349892973.24583135841249505.193333663934756",
+      "source": "chef/cookbooks/mi_php",
+      "cache_key": null,
+      "scm_info": {
+        "scm": "git",
+        "remote": null,
+        "revision": "6da5f144ab88fbab20b467320c70535763d10c83",
+        "working_tree_clean": false,
+        "published": true,
+        "synchronized_remote_branches": [
+          "origin/HEAD -> origin/main",
+          "origin/main"
+        ]
+      },
+      "source_options": {
+        "path": "chef/cookbooks/mi_php"
+      }
+    },
+    "mi_wordpress": {
+      "version": "0.1.0",
+      "identifier": "8a64b68c1d40efff99086703bfc28a7a1a85046a",
+      "dotted_decimal_identifier": "38954281983623407.71944380428304322.152257035568234",
+      "source": "chef/cookbooks/mi_wordpress",
+      "cache_key": null,
+      "scm_info": {
+        "scm": "git",
+        "remote": null,
+        "revision": "6da5f144ab88fbab20b467320c70535763d10c83",
+        "working_tree_clean": false,
+        "published": true,
+        "synchronized_remote_branches": [
+          "origin/HEAD -> origin/main",
+          "origin/main"
+        ]
+      },
+      "source_options": {
+        "path": "chef/cookbooks/mi_wordpress"
+      }
+    },
+    "principal": {
+      "version": "0.1.0",
+      "identifier": "c0c4d942795f16484393edaaa38be1cb8228b6dc",
+      "dotted_decimal_identifier": "54259632930643734.20340500949803915.248264178317020",
+      "source": "chef/cookbooks/principal",
+      "cache_key": null,
+      "scm_info": {
+        "scm": "git",
+        "remote": null,
+        "revision": "6da5f144ab88fbab20b467320c70535763d10c83",
+        "working_tree_clean": false,
+        "published": true,
+        "synchronized_remote_branches": [
+          "origin/HEAD -> origin/main",
+          "origin/main"
+        ]
+      },
+      "source_options": {
+        "path": "chef/cookbooks/principal"
+      }
+    }
+  },
+  "default_attributes": {
+    "wordpress": {
+      "url": "http://localhost",
+      "document_root": "/var/www/wordpress",
+      "db_name": "wordpress_db",
+      "db_user": "wp_user",
+      "db_password": "wp_password",
+      "db_host": "localhost",
+      "title": "TechOps Solutions, S.A",
+      "admin_user": "admin",
+      "admin_password": "admin123",
+      "admin_email": "admin@example.com"
+    }
+  },
+  "override_attributes": {
+
+  },
+  "solution_dependencies": {
+    "Policyfile": [
+      [
+        "mi_apache",
+        "= 0.1.0"
+      ],
+      [
+        "mi_mysql",
+        "= 0.1.0"
+      ],
+      [
+        "mi_php",
+        "= 0.1.0"
+      ],
+      [
+        "mi_wordpress",
+        "= 0.1.0"
+      ],
+      [
+        "principal",
+        "= 0.1.0"
+      ]
+    ],
+    "dependencies": {
+      "mi_apache (0.1.0)": [
+
+      ],
+      "mi_mysql (0.1.0)": [
+
+      ],
+      "mi_php (0.1.0)": [
+
+      ],
+      "mi_wordpress (0.1.0)": [
+
+      ],
+      "principal (0.1.0)": [
+        [
+          "mi_apache",
+          ">= 0.0.0"
+        ],
+        [
+          "mi_mysql",
+          ">= 0.0.0"
+        ],
+        [
+          "mi_php",
+          ">= 0.0.0"
+        ],
+        [
+          "mi_wordpress",
+          ">= 0.0.0"
+        ]
+      ]
+    }
+  }
+}

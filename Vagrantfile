@@ -19,8 +19,7 @@ Vagrant.configure("2") do |config|
           # Instalar Chef Infra Client antes del aprovisionamiento
           serverwordpress.vm.provision "shell", inline: <<-SHELL
             apt-get update
-            #curl -L https://www.opscode.com/chef/install.sh | sudo bash
-          curl -L https://chef.io/chef/install.sh | sudo bash
+            curl -L https://chef.io/chef/install.sh | sudo bash
           SHELL
 
           serverwordpress.vm.provision "chef_solo" do |chef|

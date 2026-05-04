@@ -1,0 +1,35 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_infra
+  cookbooks_path:
+     - chef/cookbooks
+  attributes:
+    wordpress:
+      url: "http://localhost"
+      document_root: "/var/www/wordpress"
+      db_name: "wordpress_db"
+      db_user: "wp_user"
+      db_password: "wp_password"
+      db_host: "localhost"
+      title: "TechOps Solutions, S.A"
+      admin_user: "admin"
+      admin_password: "admin123"
+      admin_email: "admin@example.com"
+
+platforms:
+  - name: ubuntu-22.04
+
+verifier:
+  name: inspec
+
+suites:
+- name: wordpress
+  run_list:
+    - recipe[principal::default] 
+  verifier:
+    inspec_tests:
+      - "test/integration/wordpress"
+
