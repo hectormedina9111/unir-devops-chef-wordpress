@@ -1,0 +1,33 @@
+require_relative '../../spec_helper'
+
+describe 'principal::default' do
+  before do
+    stub_command(/mysql -uroot/).and_return(false)
+    stub_command(/wget https:\/\/wordpress\.org/).and_return(true)
+    stub_command(/tar -xzf \/tmp\/latest\.tar\.gz/).and_return(true)
+    stub_command(/chown -R www-data:www-data/).and_return(true)
+    stub_command(/wp core is-installed/).and_return(false)
+    stub_command(/wp core install/).and_return(true)
+  end
+
+  let(:chef_run) do
+    ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '22.04') do |node|
+      node.normal['wordpress'] = {
+        'document_root' => '/var/www/wordpress',
+        'db_name' => 'wordpress_db',
+        'db_user' => 'wp_user',
+        'db_password' => 'wp_password',
+        'db_host' => 'localhost',
+        'url' => 'http://192.168.33.20',
+        'title' => 'TechOps Solutions, S.A',
+        'admin_user' => 'admin',
+        'admin_password' => 'admin123',
+        'admin_email' => 'admin@example.com',
+      }
+    end.converge(described_recipe)
+  end
+
+  it 'incluye la receta mi_apache::default' do
+    expect(chef_run).to include_recipe('mi_apache::default')
+  end
+end
