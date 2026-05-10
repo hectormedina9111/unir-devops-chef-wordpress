@@ -23,7 +23,7 @@ describe mysql_session('wp_user','wp_password').query('SHOW DATABASES;') do
 end
 
 # Se verifica que la pagina de inicio de WordPress este disponible y respondiendo correctamente
-describe http('http://localhost:80') do
+describe http('http://127.0.0.1:80') do
   its('status') { should cmp 200 }
 end
 
